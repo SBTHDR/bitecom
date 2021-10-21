@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminProfileController;
 
 /*
@@ -42,3 +43,6 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/profile/stor
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+// User Routes
+ Route::get('/', [HomeController::class, 'index']);
