@@ -39,7 +39,7 @@
                     {{ $message }}
                 </p>
                 @enderror
-                <div class="form-footer pt-4 pt-5 mt-4 border-top">
+                <div class="form-footer pt-5 mt-4 border-top">
                     <button type="submit" class="btn btn-primary btn-default">Update</button>
                     <a href="{{ route('admin.profile') }}" class="btn btn-secondary btn-default">Cancle</a>
                 </div>
