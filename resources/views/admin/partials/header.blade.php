@@ -72,7 +72,7 @@
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <img src="{{ asset('backend/img/user/user.png') }}" class="user-image"
                             alt="User Image" />
-                        <span class="d-none d-lg-inline-block">Real Ken</span>
+                        <span class="d-none d-lg-inline-block">{{ auth()->user()->name }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <!-- User image -->
@@ -80,7 +80,7 @@
                             <img src="{{ asset('backend/img/user/user.png') }}" class="img-circle"
                                 alt="User Image" />
                             <div class="d-inline-block">
-                              Real Ken <small class="pt-1">realken@mail.com</small>
+                                {{ auth()->user()->name }} <small class="pt-1">{{ auth()->user()->email }}</small>
                             </div>
                         </li>
 
@@ -102,7 +102,7 @@
                         </li>
 
                         <li class="dropdown-footer">
-                            <a href="signin.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                            <a href="{{ route('admin.logout') }}"> <i class="mdi mdi-logout"></i> Log Out </a>
                         </li>
                     </ul>
                 </li>
