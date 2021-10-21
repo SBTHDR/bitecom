@@ -13,4 +13,10 @@ class AdminProfileController extends Controller
         $admin = Admin::find(1);
         return view('admin.admin-profile', compact('admin'));
     }
+
+    public function adminProfileEdit()
+    {
+        $admin = Admin::find(1);
+        return view('admin.admin-profile-edit', compact('admin'));
+    }
 }

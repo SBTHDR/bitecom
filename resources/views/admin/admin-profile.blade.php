@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <h4 class="py-2 text-dark">{{ auth()->user()->name }}</h4>
                             <p>{{ auth()->user()->email }}</p>
-                            <a class="btn btn-primary btn-rounded my-4" href="#">Edit Profile</a>
+                            <a class="btn btn-primary btn-rounded my-4" href="{{ route('admin.profile.edit') }}">Edit Profile</a>
                         </div>
                     </div>
                     <hr class="w-100">

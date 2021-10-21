@@ -14,23 +14,30 @@ use App\Http\Controllers\Backend\AdminProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Homepage
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Admin Login
 Route::group(['prefix' => 'admin', 'middleware' => ['admin:admin']], function () {
     Route::get('/login', [AdminController::class, 'loginForm']);
     Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
 });
 
+// Admin Dashboard
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
 
+// Admin Logout
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
-Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/profile', [AdminProfileController::class, 'adminProfile'])->name('admin.profile');
 
+// Admin Routes
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/profile', [AdminProfileController::class, 'adminProfile'])->name('admin.profile');
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/profile/edit', [AdminProfileController::class, 'adminProfileEdit'])->name('admin.profile.edit');
+
+// User Dashboard
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
