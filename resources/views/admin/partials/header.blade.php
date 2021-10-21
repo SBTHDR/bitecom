@@ -70,14 +70,14 @@
                 <!-- User Account -->
                 <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <img src="{{ asset('backend/img/user/user.png') }}" class="user-image"
+                        <img src="{{ (!empty($admin->profile_photo_path)) ? url('upload/admin/'.$admin->profile_photo_path) : url('upload/placeholder.jpg') }}" class="user-image"
                             alt="User Image" />
                         <span class="d-none d-lg-inline-block">{{ auth()->user()->name }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <!-- User image -->
                         <li class="dropdown-header">
-                            <img src="{{ asset('backend/img/user/user.png') }}" class="img-circle"
+                            <img src="{{ (!empty($admin->profile_photo_path)) ? url('upload/admin/'.$admin->profile_photo_path) : url('upload/placeholder.jpg') }}" class="img-circle"
                                 alt="User Image" />
                             <div class="d-inline-block">
                                 {{ auth()->user()->name }} <small class="pt-1">{{ auth()->user()->email }}</small>
@@ -85,7 +85,7 @@
                         </li>
 
                         <li>
-                            <a href="profile.html">
+                            <a href="{{ route('admin.profile') }}">
                                 <i class="mdi mdi-account"></i> My Profile
                             </a>
                         </li>
@@ -93,10 +93,7 @@
                             <a href="email-inbox.html">
                                 <i class="mdi mdi-email"></i> Message
                             </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
-                        </li>
+                        </li>        
                         <li>
                             <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
                         </li>
