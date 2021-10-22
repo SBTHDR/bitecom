@@ -25,13 +25,13 @@
                         @foreach ($brands as $brand)
                         <tr>
                             <td>
-                                <p class="text-dark">{{ $brand->brand_name_bn }}</p>
-                            </td>
-                            <td>
                                 <p class="text-dark">{{ $brand->brand_name_en }}</p>
                             </td>
                             <td>
-                                <img src="{{ (!empty($admin->profile_photo_path)) ? url('upload/admin/'.$admin->profile_photo_path) : url('upload/placeholder.jpg') }}" alt="" width="100">
+                                <p class="text-dark">{{ $brand->brand_name_bn }}</p>
+                            </td>
+                            <td>
+                                <img src="{{ url('upload/brand/'.$brand->brand_image) }}" alt="" width="80">
                             </td>                            
                             <td>
                                 <a href="#" class="btn btn-success">Edit</a>
