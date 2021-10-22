@@ -22,21 +22,23 @@
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                         data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
-                        <i class="mdi mdi-view-dashboard-outline"></i>
-                        <span class="nav-text">Dashboard</span> <b class="caret"></b>
+                        <i class="mdi mdi-shopping"></i>
+                        <span class="nav-text">Brands</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse" id="dashboard" data-parent="#sidebar-menu">
                         <div class="sub-menu">
 
                             <li class="">
-                                <a class="sidenav-item-link" href="index.html">
-                                    <span class="nav-text">Ecommerce</span>
+                                <a class="sidenav-item-link" href="{{ route('brand.index') }}">
+                                    <i class="mdi mdi-shopping mr-2"></i>
+                                    <span class="nav-text">Brand Lists</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="analytics.html">
-                                    <span class="nav-text">Analytics</span>
+                                <a class="sidenav-item-link" href="{{ route('brand.create') }}">
+                                    <i class="mdi mdi-library-plus mr-2"></i>
+                                    <span class="nav-text">Add Brand</span>
                                 </a>
                             </li>
 
