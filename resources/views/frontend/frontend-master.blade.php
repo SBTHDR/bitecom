@@ -26,6 +26,9 @@
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.css') }}">
 
+    <!-- FAVICON -->
+    <link href="{{ asset('frontend/assets/images/favicon.png') }}" rel="shortcut icon" />
+
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800'
