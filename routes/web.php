@@ -45,6 +45,8 @@ Route::group(['prefix' => 'brand', 'middleware' => ['auth:sanctum,admin', 'verif
     Route::get('/', [BrandController::class, 'index'])->name('brand.index');
     Route::get('/create', [BrandController::class, 'create'])->name('brand.create');
     Route::post('/store', [BrandController::class, 'store'])->name('brand.store');
+    Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('brand.edit');
+    Route::post('/edit/{id}', [BrandController::class, 'update'])->name('brand.update');
 });
 
 // User Dashboard
