@@ -19,7 +19,7 @@
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
 
-                <li class="has-sub">
+                <li class="has-sub {{ Route::is('brand.index') ? 'active' : '' }}">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                         data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
                         <i class="mdi mdi-shopping"></i>
@@ -28,14 +28,14 @@
                     <ul class="collapse" id="dashboard" data-parent="#sidebar-menu">
                         <div class="sub-menu">
 
-                            <li class="">
+                            <li class="{{ Route::is('brand.index') ? 'active' : '' }}">
                                 <a class="sidenav-item-link" href="{{ route('brand.index') }}">
                                     <i class="mdi mdi-shopping mr-2"></i>
                                     <span class="nav-text">Brand Lists</span>
                                 </a>
                             </li>
 
-                            <li>
+                            <li class="{{ Route::is('brand.create') ? 'active' : '' }}">
                                 <a class="sidenav-item-link" href="{{ route('brand.create') }}">
                                     <i class="mdi mdi-library-plus mr-2"></i>
                                     <span class="nav-text">Add Brand</span>
