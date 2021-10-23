@@ -15,7 +15,7 @@
                 <table class="table card-table table-responsive table-responsive-large" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Category ID</th>
+                            <th>Category Name</th>
                             <th>Sub Category Name (English)</th>
                             <th>Sub Category Name (Bangla)</th>
                             <th>Action</th>
@@ -25,7 +25,7 @@
                         @foreach ($subCategories as $category)
                         <tr>
                             <td>
-                                <p class="text-dark">{{ $category->category_id }}</p>
+                                <p class="text-dark">{{ $category->category->category_name_en }}</p>
                             </td>
                             <td>
                                 <p class="text-dark">{{ $category->sub_category_name_en }}</p>

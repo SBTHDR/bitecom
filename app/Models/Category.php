@@ -16,4 +16,9 @@ class Category extends Model
         'category_slug_bn',
         'category_icon',
     ];
+
+    public function subCategory()
+    {
+        return $this->hasMany(SubCategory::class);
+    }
 }
