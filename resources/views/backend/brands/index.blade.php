@@ -35,7 +35,7 @@
                             </td>                            
                             <td>
                                 <a href="{{ route('brand.edit', $brand->id) }}" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('brand.delete', $brand->id) }}" id="delete" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach

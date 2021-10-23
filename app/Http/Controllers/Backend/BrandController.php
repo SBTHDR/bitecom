@@ -96,4 +96,13 @@ class BrandController extends Controller
             return redirect()->route('brand.index');
         }
     }
+
+    public function destroy($id)
+    {
+        $brand = Brand::findOrFail($id);
+        @unlink(public_path('upload/brand/'.$brand->brand_image));
+        $brand->delete();
+
+        return redirect()->back();
+    }
 }
