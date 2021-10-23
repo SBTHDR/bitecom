@@ -47,7 +47,12 @@ class BrandController extends Controller
             'brand_image' => $resizedImage,
         ]);
 
-        return redirect()->route('brand.index');
+        $notification = array(
+            'message' => 'Brand created successfully!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('brand.index')->with($notification);
     }
 
     public function edit($id)
