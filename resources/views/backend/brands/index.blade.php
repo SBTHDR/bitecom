@@ -15,8 +15,8 @@
                 <table class="table card-table table-responsive table-responsive-large" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Brand Name English</th>
-                            <th>Brand Name Bnangla</th>
+                            <th>Brand Name (English)</th>
+                            <th>Brand Name (Bnangla)</th>
                             <th class="d-none d-md-table-cell">Brand Image</th>
                             <th>Action</th>
                         </tr>
