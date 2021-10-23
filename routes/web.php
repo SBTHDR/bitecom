@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,16 @@ Route::group(['prefix' => 'brand', 'middleware' => ['auth:sanctum,admin', 'verif
     Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('brand.edit');
     Route::post('/edit/{id}', [BrandController::class, 'update'])->name('brand.update');
     Route::get('/delete/{id}', [BrandController::class, 'destroy'])->name('brand.delete');
+});
+
+// Category routes
+Route::group(['prefix' => 'category', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/edit/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::get('/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
 });
 
 // User Dashboard

@@ -21,11 +21,11 @@
 
                 <li class="has-sub {{ Route::is('brand.index') ? 'active' : '' }}">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                        data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+                        data-target="#brands" aria-expanded="false" aria-controls="brands">
                         <i class="mdi mdi-shopping"></i>
                         <span class="nav-text">Brands</span> <b class="caret"></b>
                     </a>
-                    <ul class="collapse" id="dashboard" data-parent="#sidebar-menu">
+                    <ul class="collapse" id="brands" data-parent="#sidebar-menu">
                         <div class="sub-menu">
 
                             <li class="{{ Route::is('brand.index') ? 'active' : '' }}">
@@ -46,19 +46,26 @@
                     </ul>
                 </li>
 
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
-                        aria-expanded="false" aria-controls="charts">
-                        <i class="mdi mdi-chart-pie"></i>
-                        <span class="nav-text">Charts</span> <b class="caret"></b>
+                <li class="has-sub {{ Route::is('category.index') ? 'active' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#categories" aria-expanded="false" aria-controls="categories">
+                        <i class="mdi mdi-book-multiple"></i>
+                        <span class="nav-text">Categories</span> <b class="caret"></b>
                     </a>
-                    <ul class="collapse" id="charts" data-parent="#sidebar-menu">
+                    <ul class="collapse" id="categories" data-parent="#sidebar-menu">
                         <div class="sub-menu">
 
-                            <li>
-                                <a class="sidenav-item-link" href="chartjs.html">
-                                    <span class="nav-text">ChartJS</span>
+                            <li class="{{ Route::is('category.index') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('category.index') }}">
+                                    <i class="mdi mdi-book-multiple mr-2"></i>
+                                    <span class="nav-text">Category Lists</span>
+                                </a>
+                            </li>
 
+                            <li class="{{ Route::is('category.create') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('category.create') }}">
+                                    <i class="mdi mdi-library-plus mr-2"></i>
+                                    <span class="nav-text">Add Category</span>
                                 </a>
                             </li>
 
