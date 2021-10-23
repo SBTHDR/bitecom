@@ -11,7 +11,7 @@
                 
                 @csrf
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Brand Name En</label>
+                    <label for="exampleFormControlInput1">Brand Name English</label>
                     <input type="text" name="brand_name_en" class="form-control" id="exampleFormControlInput1" value="{{ $brand->brand_name_en }}">
                 </div>
                 @error('brand_name_en')
@@ -21,7 +21,7 @@
                 @enderror
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Brand Name Bn</label>
+                    <label for="exampleFormControlInput1">Brand Name Bangla</label>
                     <input type="text" name="brand_name_bn" class="form-control" id="exampleFormControlInput1" value="{{ $brand->brand_name_bn }}">
                 </div>
                 @error('brand_name_bn')

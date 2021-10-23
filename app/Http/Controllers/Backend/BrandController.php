@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-
 use App\Models\Admin;
 use App\Models\Brand;
 use Illuminate\Support\Str;
@@ -88,8 +87,13 @@ class BrandController extends Controller
                 'brand_slug_bn' => str_replace(' ', '-', $request->brand_name_bn),
                 'brand_image' => $resizedImage,
             ]);
+
+            $notification = array(
+                'message' => 'Brand created successfully!',
+                'alert-type' => 'success'
+            );
     
-            return redirect()->route('brand.index');
+            return redirect()->route('brand.index')->with($notification);
         } else {
             $brand->update([
                 'brand_name_en' => $request->brand_name_en,
@@ -97,8 +101,13 @@ class BrandController extends Controller
                 'brand_slug_en' => Str::slug($request->brand_name_en),
                 'brand_slug_bn' => str_replace(' ', '-', $request->brand_name_bn),
             ]);
+
+            $notification = array(
+                'message' => 'Brand created successfully!',
+                'alert-type' => 'success'
+            );
     
-            return redirect()->route('brand.index');
+            return redirect()->route('brand.index')->with($notification);
         }
     }
 
