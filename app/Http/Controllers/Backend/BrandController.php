@@ -43,7 +43,7 @@ class BrandController extends Controller
             'brand_name_en' => $request->brand_name_en,
             'brand_name_bn' => $request->brand_name_bn,
             'brand_slug_en' => Str::slug($request->brand_name_en),
-            'brand_slug_bn' => Str::slug($request->brand_name_bn),
+            'brand_slug_bn' => str_replace(' ', '-', $request->brand_name_bn),
             'brand_image' => $resizedImage,
         ]);
 
@@ -80,7 +80,7 @@ class BrandController extends Controller
                 'brand_name_en' => $request->brand_name_en,
                 'brand_name_bn' => $request->brand_name_bn,
                 'brand_slug_en' => Str::slug($request->brand_name_en),
-                'brand_slug_bn' => Str::slug($request->brand_name_bn),
+                'brand_slug_bn' => str_replace(' ', '-', $request->brand_name_bn),
                 'brand_image' => $resizedImage,
             ]);
     
@@ -90,7 +90,7 @@ class BrandController extends Controller
                 'brand_name_en' => $request->brand_name_en,
                 'brand_name_bn' => $request->brand_name_bn,
                 'brand_slug_en' => Str::slug($request->brand_name_en),
-                'brand_slug_bn' => Str::slug($request->brand_name_bn),
+                'brand_slug_bn' => str_replace(' ', '-', $request->brand_name_bn),
             ]);
     
             return redirect()->route('brand.index');
