@@ -76,7 +76,7 @@ class CategoryController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Category created successfully!',
+            'message' => 'Category updated successfully!',
             'alert-type' => 'success'
         );
 
