@@ -69,6 +69,20 @@
                                 </a>
                             </li>
 
+                            <li class="{{ Route::is('sub.category.index') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('sub.category.index') }}">
+                                    <i class="mdi mdi-book-multiple mr-2"></i>
+                                    <span class="nav-text">Sub Category Lists</span>
+                                </a>
+                            </li>
+
+                            <li class="{{ Route::is('sub.category.create') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('sub.category.create') }}">
+                                    <i class="mdi mdi-library-plus mr-2"></i>
+                                    <span class="nav-text">Add Sub Category</span>
+                                </a>
+                            </li>
+
                         </div>
                     </ul>
                 </li>
