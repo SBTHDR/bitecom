@@ -89,7 +89,7 @@ class BrandController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Brand created successfully!',
+                'message' => 'Brand updated successfully!',
                 'alert-type' => 'success'
             );
     
@@ -103,7 +103,7 @@ class BrandController extends Controller
             ]);
 
             $notification = array(
-                'message' => 'Brand created successfully!',
+                'message' => 'Brand updated successfully!',
                 'alert-type' => 'success'
             );
     
