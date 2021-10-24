@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SubCategoryController;
 
 /*
@@ -70,6 +71,16 @@ Route::group(['prefix' => 'sub/category', 'middleware' => ['auth:sanctum,admin',
     Route::get('/edit/{id}', [SubCategoryController::class, 'edit'])->name('sub.category.edit');
     Route::post('/edit/{id}', [SubCategoryController::class, 'update'])->name('sub.category.update');
     Route::get('/delete/{id}', [SubCategoryController::class, 'destroy'])->name('sub.category.delete');
+});
+
+// Sub Category routes
+Route::group(['prefix' => 'products', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/store', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('/edit/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('products.delete');
 });
 
 // User Dashboard

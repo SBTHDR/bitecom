@@ -87,40 +87,27 @@
                     </ul>
                 </li>
 
-                <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
-                        aria-expanded="false" aria-controls="pages">
-                        <i class="mdi mdi-image-filter-none"></i>
-                        <span class="nav-text">Pages</span> <b class="caret"></b>
+                <li class="has-sub {{ Route::is('products.index') ? 'active' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#products" aria-expanded="false" aria-controls="products">
+                        <i class="mdi mdi-gift"></i>
+                        <span class="nav-text">Products</span> <b class="caret"></b>
                     </a>
-                    <ul class="collapse" id="pages" data-parent="#sidebar-menu">
+                    <ul class="collapse" id="products" data-parent="#sidebar-menu">
                         <div class="sub-menu">
 
-                            <li>
-                                <a class="sidenav-item-link" href="user-profile.html">
-                                    <span class="nav-text">User Profile</span>
-
+                            <li class="{{ Route::is('Products.index') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('products.index') }}">
+                                    <i class="mdi mdi-gift mr-2"></i>
+                                    <span class="nav-text">Products Lists</span>
                                 </a>
                             </li>
 
-                            <li class="has-sub">
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
-                                    data-target="#authentication" aria-expanded="false" aria-controls="authentication">
-                                    <span class="nav-text">Authentication</span> <b class="caret"></b>
+                            <li class="{{ Route::is('Products.create') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('products.create') }}">
+                                    <i class="mdi mdi-library-plus mr-2"></i>
+                                    <span class="nav-text">Add Product</span>
                                 </a>
-                                <ul class="collapse" id="authentication">
-                                    <div class="sub-menu">
-
-                                        <li>
-                                            <a href="sign-in.html">Sign In</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="sign-up.html">Sign Up</a>
-                                        </li>
-
-                                    </div>
-                                </ul>
                             </li>
 
                         </div>
