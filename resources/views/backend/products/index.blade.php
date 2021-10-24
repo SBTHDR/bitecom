@@ -6,7 +6,7 @@
         <!-- Recent Order Table -->
         <div class="card card-table-border-none" id="recent-orders">
             <div class="card-header justify-content-between">
-                <h2>Sub Category Lists</h2>
+                <h2>Products Lists</h2>
                 <div class="date-range-report ">
                     <span>Sep 23, 2021 - Oct 22, 2021</span>
                 </div>
@@ -15,27 +15,27 @@
                 <table class="table card-table table-responsive table-responsive-large" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Category Name</th>
-                            <th>Sub Category Name (English)</th>
-                            <th>Sub Category Name (Bangla)</th>
+                            <th>Products Name</th>
+                            <th>Product Quantity</th>
+                            <th>Product Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($subCategories as $category)
+                        @foreach ($products as $product)
                         <tr>
                             <td>
-                                <p class="text-dark">{{ $category->category->category_name_en }}</p>
+                                <p class="text-dark">{{ $product->product_name }}</p>
                             </td>
                             <td>
-                                <p class="text-dark">{{ $category->sub_category_name_en }}</p>
+                                <p class="text-dark">{{ $product->product_quantity }}</p>
                             </td>
                             <td>
-                                <p class="text-dark">{{ $category->sub_category_name_bn }}</p>
+                                <img src="{{ url('upload/products/'.$product->product_thumbnail) }}" alt="" width="100">
                             </td>
                             <td>
-                                <a href="{{ route('sub.category.edit', $category->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="{{ route('sub.category.delete', $category->id) }}" id="delete"
+                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('products.delete', $product->id) }}" id="delete"
                                     class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
