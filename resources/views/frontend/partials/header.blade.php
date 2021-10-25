@@ -55,8 +55,8 @@
                                         <ul class="dropdown-menu" role="menu">
                                             @foreach ($categories as $category)
                                             <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                href="category.html">- {{ $category->category_name_en }}</a></li>
-                                            @endforeach                                                                            
+                                                    href="category.html">- {{ $category->category_name_en }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                 </ul>
@@ -147,7 +147,7 @@
                                 <li class="active dropdown yamm-fw"> <a href="/" data-hover="dropdown"
                                         class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
 
-                                @foreach ($categories as $category)                    
+                                @foreach ($categories as $category)
                                 <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown"
                                         class="dropdown-toggle"
                                         data-toggle="dropdown">{{ $category->category_name_en }}</a>
@@ -162,7 +162,7 @@
                                                     @endphp
 
                                                     <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                                                        <ul class="links">
+                                                        <ul class="links list-unstyled">
                                                             @foreach ($subCategories as $subCategory)
                                                             <li><a href="#">{{ $subCategory->sub_category_name_en }}</a>
                                                             </li>
