@@ -27,4 +27,16 @@ class HomeController extends Controller
         $products = Product::orderBy('id', 'DESC')->get();
         return view('frontend.products.show', compact('showProduct', 'categories', 'sliders', 'products'));
     }
+
+    public function addToCart($id)
+    {
+        $product = Product::with('brand', 'category')->findOrFail($id);
+        $color = $product->product_color;
+        $product_color = explode(',', $color);
+
+        return response()->json(array(
+            'product' => $product,
+            'color' => $product_color,
+        ));
+    }
 }

@@ -102,3 +102,6 @@ Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function 
 // User Routes
  Route::get('/', [HomeController::class, 'index']);
  Route::get('/product/details/{id}', [HomeController::class, 'show'])->name('product.details');
+
+//  Add To Cart Route
+ Route::get('/product/cart/{id}', [HomeController::class, 'addToCart']);

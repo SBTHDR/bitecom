@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="">
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
@@ -76,6 +77,88 @@
     <script src="{{ asset('frontend/assets/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/scripts.js') }}"></script>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title inline" id="exampleModalLabel"><span id="productName"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-danger">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="" class="card-img-top" alt="" width="200" id="productImage">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">Price: BDT <span id="productPrice"></span></li>
+                                <li class="list-group-item">Code: <span id="productCode"></span></li>
+                                <li class="list-group-item">Category: <span id="productCategory"></span></li>
+                                <li class="list-group-item">Brand: <span id="productBrand"></span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Select Color</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="color">
+                                
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Select Quantity</label>
+                                <input type="number" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" value="1" min="1">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                    <button type="button" class="btn btn-primary">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+
+        function productView(id) {
+            $.ajax({
+                type: 'GET',
+                url: '/product/cart/' + id,
+                dataType: 'json',
+                success: function (data) {
+                    $('#productName').text(data.product.product_name);
+                    $('#productPrice').text(data.product.sell_price);
+                    $('#productCode').text(data.product.product_code);
+                    $('#productCategory').text(data.product.category.category_name_en);
+                    $('#productBrand').text(data.product.brand.brand_name_en);
+                    $('#productImage').attr('src','/upload/products/'+data.product.product_thumbnail);
+
+                    $('select[name="color"]').empty();        
+                    $.each(data.color,function(key,value){
+                        $('select[name="color"]').append('<option value=" '+value+' ">'+value+' </option>')
+                    })
+                }
+            })
+        }
+
+    </script>
+
 </body>
 
 </html>

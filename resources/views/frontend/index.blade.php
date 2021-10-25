@@ -916,8 +916,8 @@
                                     <div class="action">
                                         <ul class="list-unstyled">
                                             <li class="add-cart-button btn-group">
-                                                <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
-                                                    title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                                                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary icon" type="button"
+                                                    title="Add Cart" id="{{ $product->id }}" onClick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                                 <button class="btn btn-primary cart-btn" type="button">Add to
                                                     cart</button>
                                             </li>
