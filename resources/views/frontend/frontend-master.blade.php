@@ -47,7 +47,7 @@
                 @yield('content')
             </div>
             <!-- /.row -->
-            @include('frontend.partials.brand')
+            {{-- @include('frontend.partials.brand') --}}
             <!-- /.logo-slider -->
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div>

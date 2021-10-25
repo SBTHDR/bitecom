@@ -17,4 +17,13 @@ class HomeController extends Controller
         $products = Product::orderBy('id', 'DESC')->get();
         return view('frontend.index', compact('categories', 'sliders', 'products'));
     }
+
+    public function show($id)
+    {
+        $showProduct = Product::findOrFail($id);
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        $sliders = Slider::orderBy('id', 'DESC')->limit(3)->get();
+        $products = Product::orderBy('id', 'DESC')->get();
+        return view('frontend.products.show', compact('showProduct', 'categories', 'sliders', 'products'));
+    }
 }
