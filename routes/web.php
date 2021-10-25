@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 
 /*
@@ -33,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin:admin']], function ()
 // Admin Dashboard
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
     return view('admin.index');
-})->name('dashboard');
+})->name('dashboard')->middleware('auth:admin');
 
 // Admin Logout
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
@@ -73,7 +74,7 @@ Route::group(['prefix' => 'sub/category', 'middleware' => ['auth:sanctum,admin',
     Route::get('/delete/{id}', [SubCategoryController::class, 'destroy'])->name('sub.category.delete');
 });
 
-// Sub Category routes
+// Product routes
 Route::group(['prefix' => 'products', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
     Route::get('/', [ProductController::class, 'index'])->name('products.index');
     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
@@ -81,6 +82,16 @@ Route::group(['prefix' => 'products', 'middleware' => ['auth:sanctum,admin', 've
     Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
     Route::post('/edit/{id}', [ProductController::class, 'update'])->name('products.update');
     Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('products.delete');
+});
+
+// Slider routes
+Route::group(['prefix' => 'sliders', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
+    Route::get('/', [SliderController::class, 'index'])->name('sliders.index');
+    Route::get('/create', [SliderController::class, 'create'])->name('sliders.create');
+    Route::post('/store', [SliderController::class, 'store'])->name('sliders.store');
+    Route::get('/edit/{id}', [SliderController::class, 'edit'])->name('sliders.edit');
+    Route::post('/edit/{id}', [SliderController::class, 'update'])->name('sliders.update');
+    Route::get('/delete/{id}', [SliderController::class, 'destroy'])->name('sliders.delete');
 });
 
 // User Dashboard

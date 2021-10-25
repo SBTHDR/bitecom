@@ -87,7 +87,7 @@
                     </ul>
                 </li>
 
-                <li class="has-sub {{ Route::is('products.index') ? 'active' : '' }}">
+                <li class="has-sub {{ Route::is('products.index') ? 'active' : '' }} {{ Route::is('products.create') ? 'active' : '' }}">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                         data-target="#products" aria-expanded="false" aria-controls="products">
                         <i class="mdi mdi-gift"></i>
@@ -99,7 +99,7 @@
                             <li class="{{ Route::is('Products.index') ? 'active' : '' }}">
                                 <a class="sidenav-item-link" href="{{ route('products.index') }}">
                                     <i class="mdi mdi-gift mr-2"></i>
-                                    <span class="nav-text">Products Lists</span>
+                                    <span class="nav-text">Product Lists</span>
                                 </a>
                             </li>
 
@@ -107,6 +107,33 @@
                                 <a class="sidenav-item-link" href="{{ route('products.create') }}">
                                     <i class="mdi mdi-library-plus mr-2"></i>
                                     <span class="nav-text">Add Product</span>
+                                </a>
+                            </li>
+
+                        </div>
+                    </ul>
+                </li>
+
+                <li class="has-sub {{ Route::is('sliders.index') ? 'active' : '' }} {{ Route::is('sliders.create') ? 'active' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#sliders" aria-expanded="false" aria-controls="sliders">
+                        <i class="mdi mdi-image-area"></i>
+                        <span class="nav-text">Sliders</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="sliders" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+
+                            <li class="{{ Route::is('sliders.index') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('sliders.index') }}">
+                                    <i class="mdi mdi-image-area mr-2"></i>
+                                    <span class="nav-text">Slider Lists</span>
+                                </a>
+                            </li>
+
+                            <li class="{{ Route::is('sliders.create') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('sliders.create') }}">
+                                    <i class="mdi mdi-library-plus mr-2"></i>
+                                    <span class="nav-text">Add Slider</span>
                                 </a>
                             </li>
 
