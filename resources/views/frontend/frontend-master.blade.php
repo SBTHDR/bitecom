@@ -98,18 +98,18 @@
                         </div>
                         <div class="col-md-4">
                             <ul class="list-group">
-                                <li class="list-group-item">Price: BDT <span id="productPrice"></span></li>
-                                <li class="list-group-item">Code: <span id="productCode"></span></li>
-                                <li class="list-group-item">Category: <span id="productCategory"></span></li>
-                                <li class="list-group-item">Brand: <span id="productBrand"></span></li>
+                                <li class="list-group-item">Price: BDT <strong class="text-danger"><span id="productPrice"></span></strong> <del id="oldprice"></del></li>
+                                
+                                <li class="list-group-item">Code: <strong><span id="productCode"></span></strong></li>
+                                <li class="list-group-item">Category: <strong><span id="productCategory"></span></strong></li>
+                                <li class="list-group-item">Brand: <strong><span id="productBrand"></span></strong></li>
+                                <li class="list-group-item">Stock: <span id="available" class="text-success"></span><span id="stockout" class="text-danger"></span></li>
                             </ul>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Select Color</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="color">
-                                
-                                </select>
+                                <select class="form-control" id="exampleFormControlSelect1" name="color"></select>
                             </div>
 
                             <div class="form-group">
@@ -148,6 +148,25 @@
                     $('#productCategory').text(data.product.category.category_name_en);
                     $('#productBrand').text(data.product.brand.brand_name_en);
                     $('#productImage').attr('src','/upload/products/'+data.product.product_thumbnail);
+
+                    if (data.product.discount_price == null) {
+                        $('#productPrice').text('');
+                        $('#oldprice').text('');
+                        $('#productPrice').text(data.product.sell_price);
+                    }else{
+                        $('#productPrice').text(data.product.discount_price);
+                        $('#oldprice').text('( Old Price: ' + data.product.sell_price + ' )');
+                    }
+
+                    if (data.product.product_quantity > 0) {
+                        $('#available').text('');
+                        $('#stockout').text('');
+                        $('#available').text('Available');
+                    }else{
+                        $('#available').text('');
+                        $('#stockout').text('');
+                        $('#stockout').text('Out of stock');
+                    }
 
                     $('select[name="color"]').empty();        
                     $.each(data.color,function(key,value){
