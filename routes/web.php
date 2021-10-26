@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Frontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,3 +106,9 @@ Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function 
 
 //  Add To Cart Route
  Route::get('/product/cart/{id}', [HomeController::class, 'addToCart']);
+
+ //  Cart Route
+ Route::post('/product/cart/store/{id}', [CartController::class, 'addToCartMenu']);
+ Route::get('/product/mini/cart/', [CartController::class, 'addToMiniCart']);
+ Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+

@@ -309,11 +309,14 @@
                                 <div class="price-container info-container m-t-20">
                                     <div class="row">
 
-
                                         <div class="col-sm-6">
                                             <div class="price-box">
+                                                @if($showProduct->discount_price == NULL)
                                                 <span class="price">{{ $showProduct->sell_price }}</span>
-                                                <span class="price-strike">$900.00</span>
+                                                @else
+                                                <span class="price">{{ $showProduct->discount_price }}</span>
+                                                <span class="price-strike">{{ $showProduct->sell_price }}</span>
+                                                @endif
                                             </div>
                                         </div>
 
@@ -338,6 +341,7 @@
                                 </div><!-- /.price-container -->
 
                                 <div class="quantity-container info-container">
+
                                     <div class="row">
 
                                         <div class="col-sm-2">
@@ -353,14 +357,16 @@
                                                         <div class="arrow minus gradient"><span class="ir"><i
                                                                     class="icon fa fa-sort-desc"></i></span></div>
                                                     </div>
-                                                    <input type="text" value="1">
+                                                    <input type="text" id="qty" value="1" min="1">
                                                 </div>
                                             </div>
                                         </div>
 
+                                        <input type="hidden" id="product_id" value="{{ $showProduct->id }}" min="1">
+
                                         <div class="col-sm-7">
-                                            <a href="#" class="btn btn-primary"><i
-                                                    class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                            <button type="submit" onclick="addToCart()" class="btn btn-primary"><i
+                                                    class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
                                         </div>
 
 
