@@ -1,8 +1,8 @@
-# Qulecom eCommerce system
+# Bitecom eCommerce system
 
 ## About Repository
 
-Qulecom is a complete ecommerce system based on Laravel 8.
+Bitecom is a complete ecommerce system based on Laravel 8.
 Frontend system provide a complete online interface to order products from online.
 Backend system provide a complete management of the ecommerce system.
 
@@ -32,8 +32,8 @@ Backend system provide a complete management of the ecommerce system.
 
 ## Installation
 
-- `git clone https://github.com/SBTHDR/qulecom.git`
-- `cd qulecom/`
+- `git clone https://github.com/SBTHDR/bitecom.git`
+- `cd bitecom/`
 - `cp .env.example .env`
 - `composer install`
 - Run `php artisan key:generate`
