@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\User\MycartController;
+use App\Http\Controllers\User\MyCartController as UserMyCartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +101,12 @@ Route::group(['prefix' => 'sliders', 'middleware' => ['auth:sanctum,admin', 'ver
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+// User MyCart
+Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified']], function () {
+    Route::get('/my-cart', [UserMyCartController::class, 'index'])->name('mycart');
+    Route::get('/get-cart-product', [UserMyCartController::class, 'getMyCart']);
+});
 
 // User Routes
  Route::get('/', [HomeController::class, 'index']);
