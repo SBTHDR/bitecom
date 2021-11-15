@@ -8,7 +8,7 @@
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
                         <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-                        <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+                        <li><a href=""><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
                         @auth
                         <li><a href="/dashboard"><i class="icon fa fa-user"></i>{{ auth()->user()->name }}</a></li>
@@ -53,10 +53,13 @@
                                     <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown"
                                             href="category.html">Categories <b class="caret"></b></a>
                                         <ul class="dropdown-menu" role="menu">
+                                            @php
+                                            $categories = App\Models\Category::orderBy('category_name_en', 'ASC')->get();
+                                            @endphp
                                             @foreach ($categories as $category)
                                             <li role="presentation"><a role="menuitem" tabindex="-1"
                                                     href="category.html">- {{ $category->category_name_en }}</a></li>
-                                            @endforeach
+                                            @endforeach                                        
                                         </ul>
                                     </li>
                                 </ul>
@@ -131,6 +134,10 @@
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw"> <a href="/" data-hover="dropdown"
                                         class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
+
+                                @php
+                                $categories = App\Models\Category::orderBy('category_name_en', 'ASC')->get();
+                                @endphp
 
                                 @foreach ($categories as $category)
                                 <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown"
