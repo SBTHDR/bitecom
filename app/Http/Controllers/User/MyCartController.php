@@ -30,4 +30,11 @@ class MyCartController extends Controller
         Cart::remove($rowId);
         return response()->json(['success' => 'Successfully Remove From Cart']);
     }
+
+    public function CartIncrement($rowId){
+        $row = Cart::get($rowId);
+        Cart::update($rowId, $row->qty + 1);
+
+        return response()->json('increment');
+    }
 }

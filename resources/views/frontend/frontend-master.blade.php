@@ -321,9 +321,9 @@
                                 </td>
 
                                 <td class="col-md-2">
-                                    <button type="submit" class="btn btn-primary btn-sm">+</button>
-                                    <input type="text" value="${value.qty}" min="1" max="100" disabled="" style="width:25px;" >
-                                    <button type="submit" class="btn btn-primary btn-sm">-</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" id="${value.rowId}" onclick="cartIncrement(this.id)" >+</button>
+                                    <input type="text" value="${value.qty}" min="1" max="100" disabled="" style="width:25px;" >  
+                                    <button type="submit" class="btn btn-primary btn-sm" id="${value.rowId}" onclick="cartDecrement(this.id)" >-</button> 
                                 </td>
                                 <td class="col-md-2">
                                     <strong>$${value.subtotal} </strong> 
@@ -379,6 +379,20 @@
                 }
             });
         }
+
+        // -------- CART INCREMENT --------//
+        function cartIncrement(rowId){
+            $.ajax({
+                type:'GET',
+                url: "/user/cart-increment/"+rowId,
+                dataType:'json',
+                success:function(data){
+                    cart();
+                    miniCart();
+                }
+            });
+        }
+    // ---------- END CART INCREMENT -----///
     </script>
 
 </body>
