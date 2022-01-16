@@ -310,7 +310,7 @@
                     $.each(response.carts, function (key, value) {
                         rows += 
                             `<tr>
-                                <td class="col-md-2"><img src="/upload/products/${value.options.image}" alt="imga"></td>
+                                <td class="col-md-2"><img src="/upload/products/${value.options.image}" alt="imga" style="width:120px; height:120px;"></td>
        
                                 <td class="col-md-2">
                                     <div class="product-name"><a href="#">${value.name}</a></div>
@@ -329,8 +329,7 @@
                                     <strong>$${value.subtotal} </strong> 
                                 </td>
 
-                                <td class="col-md-2">
-                                    <div class="product-name"><a href="#">Color</a></div>
+                                <td class="col-md-2">                                    
                                     <strong>${value.options.color}</strong>
                                 </td>
         
