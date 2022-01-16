@@ -23,10 +23,10 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Knight King',
-            'email' => 'knightkingadmin@winterfell.com',
+            'name' => 'Jon Admin',
+            'email' => 'admin@mailinator.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('passw0rd'),
+            'password' => bcrypt('Pa$$w0rd!'),
             'remember_token' => Str::random(10),
         ];
     }
