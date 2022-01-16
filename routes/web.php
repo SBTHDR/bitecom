@@ -106,6 +106,7 @@ Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function 
 Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified']], function () {
     Route::get('/my-cart', [UserMyCartController::class, 'index'])->name('mycart');
     Route::get('/get-cart-product', [UserMyCartController::class, 'getMyCart']);
+    Route::get('/cart-remove/{rowId}', [UserMyCartController::class, 'RemoveCartProduct']);
 });
 
 // User Routes
