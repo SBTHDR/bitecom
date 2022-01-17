@@ -110,6 +110,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
     
     Route::get('/cart-increment/{rowId}', [UserMyCartController::class, 'CartIncrement']);
     Route::get('/cart-decrement/{rowId}', [UserMyCartController::class, 'CartDecrement']);
+    
     Route::get('/coupon-calculation', [UserMyCartController::class, 'CouponCalculation']);
     Route::get('/checkout', [UserMyCartController::class, 'CheckoutCreate'])->name('checkout');
 });

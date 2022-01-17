@@ -43,16 +43,17 @@
     <div class="col-md-4 col-sm-12 cart-shopping-total mb-3">
         <table class="table">
             <thead id="couponCalField">
-                
+
             </thead><!-- /thead -->
             <tbody>
-                    <tr>
-                        <td>
-                            <div class="cart-checkout-btn">
-                                <a href="{{ route('checkout') }}" type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</a>
-                            </div>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <div class="cart-checkout-btn">
+                            <a href="{{ route('checkout') }}" type="submit" class="btn btn-primary checkout-btn">PROCCED
+                                TO CHEKOUT</a>
+                        </div>
+                    </td>
+                </tr>
             </tbody><!-- /tbody -->
         </table><!-- /table -->
     </div><!-- /.cart-shopping-total -->
