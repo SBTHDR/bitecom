@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\MycartController;
 use App\Http\Controllers\User\MyCartController as UserMyCartController;
+use App\Http\Controllers\User\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,6 +118,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
 
     // Checkout Routes
     Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
+    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
 });
 
 // User Routes
