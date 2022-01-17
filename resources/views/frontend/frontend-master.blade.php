@@ -410,6 +410,29 @@
         });
     }
     // ---------- END CART Decrement -----///
+
+    // ---------- couponCalculation -----///
+    function couponCalculation(){
+        $.ajax({
+            type:'GET',
+            url: "/user/coupon-calculation",
+            dataType: 'json',
+            success:function(data){
+            
+            $('#couponCalField').html(
+                `<tr>
+                    <th>
+                        <div class="cart-sub-total">
+                        Subtotal<span class="inner-left-md">$ ${data.total}</span>
+                        </div>
+                    </th>
+                </tr>`
+                )
+            }
+        });
+    }
+    couponCalculation();
+
     </script>
 
 </body>

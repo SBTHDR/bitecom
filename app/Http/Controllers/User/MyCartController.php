@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Contracts\Session\Session;
 
 class MyCartController extends Controller
 {
@@ -46,4 +47,14 @@ class MyCartController extends Controller
         return response()->json('decrement');
 
     }
+
+    public function CouponCalculation(){
+
+        $cartTotal = Cart::total();
+        
+        return response()->json(array(
+            'total' => round($cartTotal)
+        ));
+    }
+
 }
