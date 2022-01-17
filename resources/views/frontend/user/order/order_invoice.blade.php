@@ -35,13 +35,13 @@
 
         .authority h5 {
             margin-top: -10px;
-            color: green;
+            color: dodgerblue;
             /*text-align: center;*/
             margin-left: 35px;
         }
 
         .thanks p {
-            color: green;
+            color: dodgerblue;
             ;
             font-size: 16px;
             font-weight: normal;
@@ -58,15 +58,14 @@
     <table width="100%" style="background: #F7F7F7; padding:0 20px 0 20px;">
         <tr>
             <td valign="top">
-                <!-- {{-- <img src="" alt="" width="150"/> --}} -->
-                <h2 style="color: green; font-size: 26px;"><strong>EasyShop</strong></h2>
+                <h2 style="color: dodgerblue; font-size: 26px;"><strong>BiteCom</strong></h2>
             </td>
             <td align="right">
                 <pre class="font">
-               EasyShop Head Office
-               Email:support@easylearningbd.com <br>
-               Mob: 1245454545 <br>
-               Dhaka 1207,Dhanmondi:#4 <br>
+               BiteCom Head Office
+               Email:bitecom@info.com <br>
+               Mob: +880 12345678910 <br>
+               Road #2 Gulshan 2, Dhaka <br>
 
             </pre>
             </td>
@@ -80,20 +79,20 @@
         <tr>
             <td>
                 <p class="font" style="margin-left: 20px;">
-                    <strong>Name:</strong> Name <br>
-                    <strong>Email:</strong> Email <br>
-                    <strong>Phone:</strong> Phone <br>
+                    <strong>Name:</strong> {{ $order->name }} <br>
+                    <strong>Email:</strong> {{ $order->email }} <br>
+                    <strong>Phone:</strong> {{ $order->phone }} <br>
 
-                    <strong>Address:</strong> Address <br>
-                    <strong>Post Code:</strong> Post Code
+                    <strong>Address:</strong> {{ $order->address }} <br>
+                    <strong>Post Code:</strong> {{ $order->post_code }}
                 </p>
             </td>
             <td>
                 <p class="font">
-                    <h3><span style="color: green;">Invoice:</span> #Invoice</h3>
-                    Order Date: Order Date <br>
-                    Delivery Date: Delivery Date <br>
-                    Payment Type : Payment Type </span>
+                    <h3><span style="color: dodgerblue;">Invoice:</span> #{{ $order->invoice_no}}</h3>
+                    Order Date: {{ $order->order_date }} <br>
+                    Delivery Date: {{ $order->delivered_date }} <br>
+                    Payment Type : {{ $order->payment_method }} </span>
                 </p>
             </td>
         </tr>
@@ -101,11 +100,9 @@
     <br />
     <h3>Products</h3>
     <table width="100%">
-        <thead style="background-color: green; color:#FFFFFF;">
+        <thead style="background-color: dodgerblue; color:#FFFFFF;">
             <tr class="font">
-                <th>Image</th>
                 <th>Product Name</th>
-                <th>Size</th>
                 <th>Color</th>
                 <th>Code</th>
                 <th>Quantity</th>
@@ -115,20 +112,16 @@
         </thead>
         <tbody>
 
+            @foreach($orderItem as $item)
             <tr class="font">
-                <td align="center">
-                    <img src=" " height="60px;" width="60px;" alt="">
-                </td>
-                <td align="center">product_name_en</td>
-                <td align="center">
-
-                </td>
-                <td align="center">color</td>
-                <td align="center">product_code</td>
-                <td align="center">qty</td>
-                <td align="center">price Tk</td>
-                <td align="center">price Tk</td>
+                <td align="center"> {{ $item->product->product_name }}</td>
+                <td align="center">{{ $item->color }}</td>
+                <td align="center">{{ $item->product->product_code }}</td>
+                <td align="center">{{ $item->qty }}</td>
+                <td align="center">${{ $item->price }}</td>
+                <td align="center">${{ $item->price * $item->qty }} </td>
             </tr>
+            @endforeach
 
         </tbody>
     </table>
@@ -136,14 +129,13 @@
     <table width="100%" style=" padding:0 10px 0 10px;">
         <tr>
             <td align="right">
-                <h2><span style="color: green;">Subtotal:</span> Subtotal tk</h2>
-                <h2><span style="color: green;">Total:</span> Total tk</h2>
-                {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}}
+                <h2><span style="color: dodgerblue;">Subtotal:</span>${{ $order->amount }}</h2>
+                <h2><span style="color: dodgerblue;">Total:</span> ${{ $order->amount }}</h2>
             </td>
         </tr>
     </table>
     <div class="thanks mt-3">
-        <p>Thanks For Buying Products..!!</p>
+        <p>Thanks for Your purchase.</p>
     </div>
     <div class="authority float-right mt-5">
         <p>-----------------------------------</p>
