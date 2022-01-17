@@ -26,10 +26,6 @@ class CashController extends Controller
     		$total_amount = round(Cart::total());
     	}
 
-
-
-	  // dd($charge);
-
      $order_id = Order::insertGetId([
      	'user_id' => Auth::id(),
      	'name' => $request->name,
@@ -67,7 +63,6 @@ class CashController extends Controller
 
      // End Send Email 
 
-
      $carts = Cart::content();
      foreach ($carts as $cart) {
      	OrderItem::insert([
@@ -77,10 +72,8 @@ class CashController extends Controller
      		'qty' => $cart->qty,
      		'price' => $cart->price,
      		'created_at' => Carbon::now(),
-
      	]);
      }
-
 
      if (Session::has('coupon')) {
      	Session::forget('coupon');
@@ -94,7 +87,6 @@ class CashController extends Controller
 		);
 
 		return redirect()->route('dashboard')->with($notification);
-
 
     } 
 
