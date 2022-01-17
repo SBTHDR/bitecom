@@ -11,10 +11,12 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\AllUserController;
+use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\MycartController;
 use App\Http\Controllers\User\MyCartController as UserMyCartController;
 use App\Http\Controllers\User\StripeController;
+use App\Http\Controllers\UserCashController;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,6 +126,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
     //  My Order Routes
     Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
     Route::get('/order_details/{order_id}', [AllUserController::class, 'OrderDetails']);
+
+    // Cash on Delivery
+    Route::post('/cash/order', [CashController::class, 'CashOrder'])->name('cash.order');
 });
 
 // User Routes
