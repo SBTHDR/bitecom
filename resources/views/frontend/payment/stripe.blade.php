@@ -146,7 +146,7 @@
 
 <script type="text/javascript">
     // Create a Stripe client.
-var stripe = Stripe('pk_test_');
+var stripe = Stripe('pk_test_')
 // Create an instance of Elements.
 var elements = stripe.elements();
 // Custom styling can be passed to options when creating an Element.

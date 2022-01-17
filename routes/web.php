@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\MycartController;
 use App\Http\Controllers\User\MyCartController as UserMyCartController;
@@ -119,6 +120,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
     // Checkout Routes
     Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
     Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
+
+    //  My Order Routes
+    Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
+    Route::get('/order_details/{order_id}', [AllUserController::class, 'OrderDetails']);
 });
 
 // User Routes
@@ -132,4 +137,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
  Route::post('/product/cart/store/{id}', [CartController::class, 'addToCartMenu']);
  Route::get('/product/mini/cart/', [CartController::class, 'addToMiniCart']);
  Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+
+
 
