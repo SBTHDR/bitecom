@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\MycartController;
 use App\Http\Controllers\User\MyCartController as UserMyCartController;
 
@@ -110,9 +111,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
     
     Route::get('/cart-increment/{rowId}', [UserMyCartController::class, 'CartIncrement']);
     Route::get('/cart-decrement/{rowId}', [UserMyCartController::class, 'CartDecrement']);
-    
+
     Route::get('/coupon-calculation', [UserMyCartController::class, 'CouponCalculation']);
     Route::get('/checkout', [UserMyCartController::class, 'CheckoutCreate'])->name('checkout');
+
+    // Checkout Routes
+    Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
 });
 
 // User Routes
