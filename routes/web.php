@@ -56,6 +56,7 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/profile/stor
 // Admin Order Routes
 Route::group(['prefix' => 'orders', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
     Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+    Route::get('/pending/orders/details/{order_id}', [OrderController::class, 'PendingOrdersDetails'])->name('pending.order.details');
 });
 
 // Brand routes
