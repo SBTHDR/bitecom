@@ -161,6 +161,18 @@
                     </ul>
                 </li>
 
+                <li class="{{ Route::is('confirmed-orders') ? 'active':'' }}"><a href="{{ route('confirmed-orders') }}"><i class="ti-more"></i>Confirmed Orders</a></li>
+
+                <li class="{{ Route::is('processing-orders') ? 'active':'' }}"><a href="{{ route('processing-orders') }}"><i class="ti-more"></i>Processing Orders</a></li>
+
+                <li class="{{ Route::is('picked-orders') ? 'active':'' }}"><a href="{{ route('picked-orders') }}"><i class="ti-more"></i> Picked Orders</a></li>
+
+                <li class="{{ Route::is('shipped-orders') ? 'active':'' }}"><a href="{{ route('shipped-orders') }}"><i class="ti-more"></i> Shipped Orders</a></li>
+
+                <li class="{{ Route::is('delivered-orders') ? 'active':'' }}"><a href="{{ route('delivered-orders') }}"><i class="ti-more"></i> Delivered Orders</a></li>
+
+                <li class="{{ Route::is('cancel-orders') ? 'active':'' }}"><a href="{{ route('cancel-orders') }}"><i class="ti-more"></i> Cancel Orders</a></li>
+
             </ul>
         </div>
     </div>

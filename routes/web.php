@@ -57,6 +57,14 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/profile/stor
 Route::group(['prefix' => 'orders', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
     Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
     Route::get('/pending/orders/details/{order_id}', [OrderController::class, 'PendingOrdersDetails'])->name('pending.order.details');
+
+    // Order Processing Routes
+    Route::get('/confirmed/orders', [OrderController::class, 'ConfirmedOrders'])->name('confirmed-orders');
+    Route::get('/processing/orders', [OrderController::class, 'ProcessingOrders'])->name('processing-orders');
+    Route::get('/picked/orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');
+    Route::get('/shipped/orders', [OrderController::class, 'ShippedOrders'])->name('shipped-orders');
+    Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
+    Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
 });
 
 // Brand routes
