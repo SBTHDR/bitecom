@@ -173,6 +173,8 @@
 
                 <li class="{{ Route::is('cancel-orders') ? 'active':'' }}"><a href="{{ route('cancel-orders') }}"><i class="ti-more"></i> Cancel Orders</a></li>
 
+                <li class="{{ Route::is('all-reports') ? 'active':'' }}"><a href="{{ route('all-reports') }}"><i class="ti-more"></i>All Reports</a></li>
+
             </ul>
         </div>
     </div>

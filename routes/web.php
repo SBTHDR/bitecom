@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
@@ -76,6 +77,14 @@ Route::group(['prefix' => 'orders', 'middleware' => ['auth:sanctum,admin', 'veri
 
     // Admin Order Invoice
     Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('invoice.download');
+});
+
+// Admin Reports Routes
+Route::group(['prefix' => 'reports', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
+    Route::get('/view', [ReportController::class, 'ReportView'])->name('all-reports');
+    Route::post('/search/by/date', [ReportController::class, 'ReportByDate'])->name('search-by-date');
+    Route::post('/search/by/month', [ReportController::class, 'ReportByMonth'])->name('search-by-month');
+    Route::post('/search/by/year', [ReportController::class, 'ReportByYear'])->name('search-by-year');
 });
 
 // Brand routes
