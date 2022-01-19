@@ -47,8 +47,8 @@
                                             <a href="{{ route('pending.order.details',$item->id) }}" class="btn btn-info">
                                                 View
                                             </a>
-                                            <a href="" class="btn btn-danger" id="delete">
-                                                Delete
+                                            <a target="_blank" href="{{ route('invoice.download',$item->id) }}" class="btn btn-primary">
+                                                Invoice
                                             </a>
                                         </td>
 
