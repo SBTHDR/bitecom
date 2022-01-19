@@ -119,6 +119,15 @@
                             </th>
                         </tr>
 
+                        <tr>
+                            <th>  </th>
+                             <th> 
+                                 @if($order->status == 'Pending')
+                                    <a href="{{ route('pending-confirm',$order->id) }}" class="btn btn-block btn-success" id="confirm">Confirm Order</a>
+                                 @endif
+                               </th>
+                          </tr>
+
                     </table>
 
                 </div>
