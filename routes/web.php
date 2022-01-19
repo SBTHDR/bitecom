@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -51,6 +52,11 @@ Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.lo
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/profile', [AdminProfileController::class, 'adminProfile'])->name('admin.profile');
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/profile/edit', [AdminProfileController::class, 'adminProfileEdit'])->name('admin.profile.edit');
 Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/profile/store', [AdminProfileController::class, 'adminProfileStore'])->name('admin.profile.store');
+
+// Admin Order Routes
+Route::group(['prefix' => 'orders', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {
+    Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+});
 
 // Brand routes
 Route::group(['prefix' => 'brand', 'middleware' => ['auth:sanctum,admin', 'verified']], function () {

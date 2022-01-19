@@ -141,6 +141,26 @@
                     </ul>
                 </li>
 
+                <li class="has-sub {{ Route::is('pending-orders') ? 'active' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                        data-target="#orders" aria-expanded="false" aria-controls="orders">
+                        <i class="mdi mdi-image-area"></i>
+                        <span class="nav-text">Orders</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="orders" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+
+                            <li class="{{ Route::is('pending-orders') ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ route('pending-orders') }}">
+                                    <i class="mdi mdi-image-area mr-2"></i>
+                                    <span class="nav-text">Orders List</span>
+                                </a>
+                            </li>
+
+                        </div>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
