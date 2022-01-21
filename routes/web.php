@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\User\CheckoutController;
@@ -181,5 +182,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum,web', 'verified
  Route::get('/product/mini/cart/', [CartController::class, 'addToMiniCart']);
  Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
 
-
-
+ //  Search Route
+ Route::post('/search', [IndexController::class, 'productSearch'])->name('product.search');
+ Route::post('search-product', [IndexController::class, 'SearchProduct']);

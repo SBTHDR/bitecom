@@ -47,7 +47,8 @@
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area">
-                        <form>
+                        <form method="post" action="{{ route('product.search') }}">
+                            @csrf
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown"
@@ -63,10 +64,12 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" placeholder="Search here..." />
-                                <a class="search-button" href="#"></a>
+                                <input class="search-field" onfocus="search_result_show()" onblur="search_result_hide()" id="search" name="search" placeholder="Search here..." />
+                                    <button class="search-button" type="submit"></button>
                             </div>
+                        
                         </form>
+                        <div id="searchProducts"></div>
                     </div>
                     <!-- /.search-area -->
                     <!-- ============================================================= SEARCH AREA : END ============================================================= -->
@@ -191,3 +194,28 @@
     <!-- ============================================== NAVBAR : END ============================================== -->
 
 </header>
+
+<style>
+    .search-area{
+      position: relative;
+    }
+      #searchProducts {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        border-radius: 8px;
+        margin-top: 5px;
+      }
+</style>
+
+<script>
+    function search_result_hide(){
+    $("#searchProducts").slideUp();
+  }
+   function search_result_show(){
+      $("#searchProducts").slideDown();
+  }
+</script>

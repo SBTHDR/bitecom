@@ -28,8 +28,6 @@
                                         <th>Amount </th>
                                         <th>Payment </th>
                                         <th>Status </th>
-                                        <th>Action</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,20 +42,14 @@
                                         <td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>
                                         </td>
 
-                                        <td width="25%">
-                                            <a href="{{ route('pending.order.details',$item->id) }}"
-                                                class="btn btn-info" title="Edit Data"><i class="fa fa-eye"></i> </a>
-
-                                            <a target="_blank" href="{{ route('invoice.download',$item->id) }}"
-                                                class="btn btn-danger" title="Invoice Download">
-                                                <i class="fa fa-download"></i></a>
-                                        </td>
-
                                     </tr>
                                     @endforeach
                                 </tbody>
 
                             </table>
+                            <a target="_blank" href="" class="btn btn-primary">
+                                Excel
+                            </a>
                         </div>
                     </div>
                     <!-- /.box-body -->
